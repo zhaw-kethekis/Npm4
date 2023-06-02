@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <title>Meine erste Webseite</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <p>
+        Das Diagramm zeigt die Weltbevölkerung im Laufe der Jahre. Es ist als Liniendiagramm dargestellt, wobei die
+        x-Achse die Jahre von 1950 bis 2020 und die y-Achse die Bevölkerungszahl in Milliarden darstellt.
+
+        Das Diagramm bietet eine visuelle Darstellung des Bevölkerungswachstums im Laufe der Zeit. Die Linie, die die
+        Datenpunkte verbindet, veranschaulicht den Trend der wachsenden Bevölkerung. Im Laufe der Jahre nimmt die
+        Bevölkerung stetig zu, was die globalen demografischen Veränderungen widerspiegelt.
+    </p>
+
+    <canvas id="populationChart"></canvas>
+
+    <script>
+        // Data for world population over the years
+        var years = [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020];
+        var population = [2.52, 3.03, 3.71, 4.43, 5.33, 6.12, 6.92, 7.79];
+
+        // Get the canvas element
+        var ctx = document.getElementById('populationChart').getContext('2d');
+
+        // Create the chart
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'World Population (in billions)',
+                    data: population,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
